@@ -453,3 +453,72 @@ a:focus-visible,button:focus-visible{outline-color:var(--acc)}
 .btn.l,.btn.l:visited,.nav .cta{color:#11110f!important}
 .nh .case,.case{--c:var(--acc)!important}
 .btn.p,.btn.p:visited{color:#11110f!important}
+
+/* ================= v11: Geist (Pisak title style), olive everywhere ================= */
+:root{
+  --f:"Geist","Space Grotesk","Helvetica Neue",Arial,sans-serif;
+  --fd:"Geist","Helvetica Neue",Arial,sans-serif;
+  --rule:rgba(214,240,106,.16); --nline:rgba(214,240,106,.16);
+  --acc-a:rgba(214,240,106,.10); --ink-dk:#10100e;
+}
+body{font-family:var(--f)}
+h1,h2,h3,h4{font-family:var(--fd);font-weight:800;letter-spacing:-.035em}
+.hero h1,.phero h1{font-weight:800;letter-spacing:-.04em;line-height:.92}
+h2{line-height:.98}
+h3{font-weight:700;letter-spacing:-.02em}
+.cyc .node text,.cyc .ctr .t{font-family:var(--fd);font-weight:700;letter-spacing:-.02em}
+/* olive markers */
+.idx,.crumb{color:var(--acc)!important}
+.crumb a{color:var(--acc)}
+.sec-h h2::before{content:"";display:block;width:56px;height:5px;background:var(--acc);margin-bottom:22px;border-radius:2px}
+.gridbg{background-image:linear-gradient(rgba(214,240,106,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(214,240,106,.06) 1px,transparent 1px)}
+.hero .who{border-top:2px solid var(--acc)}
+.hero .who b{color:var(--acc);font-size:1.3rem;font-weight:800;letter-spacing:-.02em}
+/* surfaces with olive edges */
+.box3>div,.crs,.st,.qs4 figure,.field,.chip,.path a,#cf,.quotes .q,.pc,.gain{border:1px solid rgba(214,240,106,.22)!important}
+.box3>div:hover,.crs:hover,.st:hover,.pc:hover{border-color:rgba(214,240,106,.6)!important}
+.box3>div h3::before,.crs h3::before{content:"";display:block;width:14px;height:14px;background:var(--acc);margin-bottom:14px;border-radius:2px}
+.st{border-top:6px solid var(--acc)!important}
+.st .no{font-size:2.4rem;font-family:var(--fd);font-weight:800;letter-spacing:-.04em;line-height:1}
+.st li{border-top-color:rgba(214,240,106,.16)!important;padding-left:18px;position:relative}
+.st li::before{content:"";position:absolute;left:0;top:50%;width:7px;height:7px;margin-top:-3.5px;background:var(--acc);border-radius:1px}
+.st .btn.p{background:var(--acc);border-color:var(--acc);color:var(--ink-dk)!important}
+.btn{border-color:rgba(214,240,106,.45)}
+.btn:not(.l):not(.p):hover{background:var(--acc-a);border-color:var(--acc)}
+.gain h4{color:var(--acc)}
+.gain li::marker,.cred li::marker{color:var(--acc)}
+/* path bar: active tab filled */
+.path a[aria-current]{background:var(--acc)!important;color:var(--ink-dk)!important;border-color:var(--acc)!important}
+.path a[aria-current] span{color:var(--ink-dk)}
+/* nav */
+.nav a[aria-current]{background:transparent;box-shadow:inset 0 -2px 0 var(--acc);border-radius:0;color:var(--ink-s)}
+.bar{border-color:rgba(214,240,106,.22)}
+/* lead quote as an olive block */
+.quotes .q.q1{background:var(--acc)!important;border-color:var(--acc)!important}
+.quotes .q.q1 blockquote,.quotes .q.q1 figcaption,.quotes .q.q1 figcaption a,.quotes .q.q1 figcaption span{color:var(--ink-dk)!important}
+.quotes .q.q1 figcaption{border-top-color:rgba(16,16,14,.25)}
+.quotes .q.q1 figcaption a:first-child::after{color:var(--ink-dk)}
+.quotes .q figcaption{border-top-color:rgba(214,240,106,.25)}
+/* call-to-action and contact panels: solid olive */
+.sec.panel.dark{background:var(--acc)!important;border:0!important;background-image:none!important}
+.sec.panel.dark,.sec.panel.dark h2,.sec.panel.dark h3,.sec.panel.dark p,.sec.panel.dark li,.sec.panel.dark span,.sec.panel.dark a:not(.btn){color:var(--ink-dk)!important}
+.sec.panel.dark .idx{color:var(--ink-dk)!important;opacity:.7}
+.sec.panel.dark .sec-h h2::before{background:var(--ink-dk)}
+.sec.panel.dark .btn{border-color:var(--ink-dk);color:var(--ink-dk)!important;background:transparent}
+.sec.panel.dark .btn.p,.sec.panel.dark .btn.l{background:var(--ink-dk)!important;color:var(--acc)!important;border-color:var(--ink-dk)}
+.sec.panel.dark .ct li{border-color:rgba(16,16,14,.2)!important}
+/* projects */
+.case .y{font-family:var(--fd)!important;font-weight:800;letter-spacing:-.04em}
+.case{border-top:1px solid rgba(214,240,106,.22)}
+/* footer */
+.foot,footer{border-top:2px solid var(--acc)}
+/* hero pin only when the whole hero fits */
+.hero-scroll.nopin{height:auto}.hero-scroll.nopin .hero-pin{position:static;height:auto;display:block}.hero-scroll.nopin .chint{display:none}
+.hero-pin{align-items:flex-start}.hero-pin .hero{min-height:calc(100vh - 24px)}
+.hero-pin .hero{padding-top:96px;padding-bottom:28px}
+.hero .cyc{max-width:min(700px,calc(100vh - 250px));width:100%}
+.cyc .node text{font-size:31px}
+.cyc .node text.n{font-size:18px}
+.cv{margin-top:0;min-height:2.9em}
+.chint{margin-top:6px}
+.menu{background:var(--acc)!important;color:#10100e!important;border:0}
