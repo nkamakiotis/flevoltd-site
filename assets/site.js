@@ -28,7 +28,7 @@
       H.nodes.forEach(function(g,i){function go(){auto=false;H.sel(i);goStage(i)}g.addEventListener('click',go);g.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}})});
       H.auto=function(dt){if(!auto)return;tA+=dt;if(tA>3.4){tA=0;H.sel((H.cur()+1)%8)}};
       var hs=document.querySelector('.hero-scroll'),cbar=document.getElementById('cbar');
-      function fits(){if(!hs)return false;var hero=hs.querySelector('.hero');hs.classList.remove('nopin');var need=hero.scrollHeight+24;var ok=window.innerWidth>980&&need<=window.innerHeight+2;hs.classList.toggle('nopin',!ok);return ok}
+      function fits(){if(!hs)return false;var hero=hs.querySelector('.cycwrap');hs.classList.remove('nopin');var need=hero.scrollHeight+24;var ok=window.innerWidth>980&&need<=window.innerHeight+2;hs.classList.toggle('nopin',!ok);return ok}
       var pinOK=fits();window.addEventListener('resize',function(){pinOK=fits();pin()});
       function pin(){if(!hs)return;if(!pinOK){auto=!reduce;return}var r=hs.getBoundingClientRect(),span=r.height-window.innerHeight;if(span<40){auto=!reduce;return}
         var p=Math.max(0,Math.min(1,-r.top/span));if(cbar)cbar.style.width=(p*100).toFixed(1)+'%';

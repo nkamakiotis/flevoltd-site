@@ -522,3 +522,38 @@ h3{font-weight:700;letter-spacing:-.02em}
 .cv{margin-top:0;min-height:2.9em}
 .chint{margin-top:6px}
 .menu{background:var(--acc)!important;color:#10100e!important;border:0}
+
+/* ================= v12: hero text only; the cycle gets its own full-screen pinned section ================= */
+.hero{min-height:auto;padding:150px 0 70px}
+.hero-solo{max-width:1360px}
+.hero-solo .h3l{font-size:clamp(2.6rem,6.4vw,6.4rem)!important;max-width:16ch}
+.hero-solo .lead{max-width:52ch}
+.hero-solo .who{max-width:760px}
+.hero-scroll{height:420vh;margin:12px}
+.hero-pin{position:sticky;top:0;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding-top:72px;box-sizing:border-box}
+.cycwrap{width:100%;display:flex;flex-direction:column;align-items:center}
+.cyc.big{max-width:none;width:min(98vw,calc((100vh - 130px)*1.2195));aspect-ratio:1000/820;margin:0 auto}
+.cyc.big .ctr{inset:auto;left:50%;top:52.4%;transform:translate(-50%,-50%);width:33%;padding:0}
+.cyc.big .ctr .t{font-size:clamp(1.4rem,2.6vw,2.4rem)}
+.cyc.big .cv{font-size:clamp(.85rem,1.05vw,1.02rem);color:var(--ink);margin-top:12px;min-height:0;line-height:1.4}
+.cyc .node text{font-size:30px}
+.cyc .node text.n{font-size:17px}
+.cyc .side{font-size:15px}
+.chint{margin-top:4px}
+.nh h2,.nh .h2,.nh h3,.nh .case h3,.nh .feat h3{font-family:var(--fd)!important;font-weight:800!important;letter-spacing:-.03em}
+@media (max-width:980px),(max-height:620px){
+  .hero-scroll{height:auto}.hero-pin{position:static;height:auto;display:block;padding:40px 0}
+  .cyc.big{width:100%}
+}
+@media (max-width:640px){.cyc.big .ctr{width:46%}.cyc.big .cv{display:none}.hero{padding:110px 0 40px}}
+/* olive panels: big type */
+.sec.panel.dark h2{font-size:clamp(2.8rem,6vw,5.8rem)!important;line-height:.92!important;letter-spacing:-.045em}
+.sec.panel.dark p{font-size:clamp(1.15rem,1.6vw,1.5rem)!important}
+.sec.panel.dark .idx{font-size:.9rem}
+.sec.panel.dark .btn{font-size:1.15rem;padding:18px 30px}
+.sec.panel.dark .ct li{padding:20px 0}
+.sec.panel.dark .ct li span{font-size:.85rem!important;letter-spacing:.1em}
+.sec.panel.dark .ct li a,.sec.panel.dark .ct li{font-size:clamp(1.3rem,2vw,1.9rem)!important;font-weight:700;letter-spacing:-.02em}
+.sec.panel.dark .wrap.two{align-items:center}
+.cyc.big{width:min(98vw,calc((100vh - 200px)*1.2195))}
+.cycwrap>.cv{font-size:clamp(1.1rem,1.6vw,1.5rem);color:var(--ink-s);text-align:center;max-width:60ch;margin:4px auto 0;min-height:1.5em;font-weight:500;letter-spacing:-.01em}
