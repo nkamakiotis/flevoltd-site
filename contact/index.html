@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact · FlEvo Ltd</title>
+<meta name="description" content="Request a demonstration, a training proposal or safety management support.">
+<meta property="og:title" content="Contact · FlEvo Ltd">
+<meta property="og:description" content="Request a demonstration, a training proposal or safety management support.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://flevoltd.com/contact/">
+<meta property="og:image" content="https://flevoltd.com/assets/og.jpg">
+<link rel="canonical" href="https://flevoltd.com/contact/">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/type.css?v=5">
+<link rel="stylesheet" href="/assets/site.css?v=7">
+</head>
+<body>
+<header class="bar"><div class="wrap">
+  <a class="brand" href="/"><span class="logo" aria-hidden="true"></span><span class="who"><b>Nikolaos Kamakiotis</b>Safety &amp; risk management</span></a>
+  <button class="menu" id="menu" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+  <ul class="nav" id="nav"><li><a href="/">Home</a></li><li><a href="/safety-management/">Safety management</a></li><li><a href="/natural-hazards/">Natural hazards</a></li><li><a href="/products/">Products</a></li><li><a href="/training/">Training</a></li><li><a href="/insights/">Insights</a></li><li><a href="/about/">About</a></li><li><a class="cta" href="/contact/" aria-current="page">Contact</a></li></ul>
+</div></header>
+<main>
+<section class="phero panel dark gridbg"><div class="wrap">
+  <p class="crumb"><a href="/">Home</a> / Contact</p>
+  <h1>Let's talk about your risk</h1>
+  <p class="lead">Demonstrations, proposals, questions. We reply within one working day.</p>
+</div></section>
+<section class="sec"><div class="wrap cform">
+<form id="cf" novalidate>
+  <label class="full">I'm interested in<select name="topic" id="topic"><option value="pyrodotus">PYRODOTUS demonstration</option><option value="survey">Facility risk survey demonstration</option><option value="history">Digital fire history</option><option value="training">Training proposal</option><option value="safety">Safety management support</option><option value="other">Something else</option></select></label>
+  <label>Name<input name="name" autocomplete="name" required></label>
+  <label>Company<input name="company" autocomplete="organization"></label>
+  <label>Email<input name="email" type="email" autocomplete="email" required></label>
+  <label>Phone<input name="phone" type="tel" autocomplete="tel"></label>
+  <label class="full">Message<textarea name="message" rows="5"></textarea></label>
+  <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+  <div class="full act"><button class="btn p" type="submit">Send</button><p id="cfs" role="status"></p></div>
+</form>
+<aside class="cside"><h3>Direct</h3><ul class="ct"><li><span>EMAIL</span><a href="mailto:nka@flevoltd.com">nka@flevoltd.com</a></li><li><span>PHONE</span><a href="tel:+35799693146">+357 99 693146</a></li><li><span>LINKEDIN</span><a href="https://www.linkedin.com/in/nkamakiotis/" rel="noopener">Nikos Kamakiotis</a> · <a href="https://www.linkedin.com/company/pyrodotus-project/" rel="noopener">PYRODOTUS</a></li><li><span>BASED IN</span>Larnaca, Cyprus</li></ul><p class="note">Greek or English.</p></aside>
+</div></section>
+</main>
+<script>
+(function(){
+  var f=document.getElementById('cf'),s=document.getElementById('cfs'),sel=document.getElementById('topic');
+  var q=(location.search.match(/topic=([a-z]+)/)||[])[1];if(q&&sel.querySelector('option[value="'+q+'"]'))sel.value=q;
+  f.addEventListener('submit',function(e){e.preventDefault();
+    if(f._honey.value)return;
+    if(!f.name.value.trim()||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email.value)){s.textContent='Please add your name and a valid email.';s.className='err';return;}
+    var t=sel.options[sel.selectedIndex].text,d={_subject:'flevoltd.com: '+t,_template:'table',topic:t,name:f.name.value,company:f.company.value,email:f.email.value,phone:f.phone.value,message:f.message.value};
+    var b=f.querySelector('button');b.disabled=true;s.className='';s.textContent='Sending…';
+    fetch('https://formsubmit.co/ajax/nka@flevoltd.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(d)})
+      .then(function(r){return r.json()}).then(function(j){if(j&&(j.success===true||j.success==='true')){f.reset();if(q)sel.value=q;s.className='ok';s.textContent='Thank you. Your message has been sent; we will reply within one working day.';}else throw 0;})
+      .catch(function(){s.className='err';s.innerHTML='The message could not be sent. Please email <a href="mailto:nka@flevoltd.com?subject='+encodeURIComponent(d._subject)+'&body='+encodeURIComponent(d.message)+'">nka@flevoltd.com</a>.';})
+      .then(function(){b.disabled=false;});
+  });
+})();
+</script>
+<footer><div class="wrap"><span>© 2026 FlEvo Ltd · Nikolaos Kamakiotis · Larnaca, Cyprus</span><span><a href="/products/">Products</a> · <a href="/training/">Training</a> · <a href="/insights/">Insights</a> · <a href="/about/">About</a> · <a href="/contact/">Contact</a> · <a href="https://www.linkedin.com/in/nkamakiotis/" rel="noopener">LinkedIn</a></span></div></footer>
+<script src="/assets/site.js?v=5" defer></script>
+</body>
+</html>

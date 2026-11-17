@@ -300,3 +300,17 @@ footer a{color:var(--bone);text-decoration:none}footer a:hover{color:var(--lime)
 @media (max-width:720px){.why,.qs4,.box3.b4,.crsg,.quotes{grid-template-columns:1fr}}
 .quotes .q:last-child{grid-column:1/-1}.quotes .q:last-child blockquote{max-width:58ch}
 .field li{display:block;font-size:1.05rem;font-weight:500}.field .fv{font-size:1.1rem}
+.cform{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:40px;align-items:start}
+#cf{display:grid;grid-template-columns:1fr 1fr;gap:16px;background:var(--panel);border-radius:var(--r);padding:clamp(22px,3vw,40px)}
+#cf label{display:flex;flex-direction:column;gap:6px;font-family:var(--fm);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+#cf .full{grid-column:1/-1}
+#cf input,#cf select,#cf textarea{font:500 1rem/1.4 var(--f);color:var(--ink-s);background:#fff;border:1px solid var(--rule);border-radius:10px;padding:13px 14px;text-transform:none;letter-spacing:0}
+#cf input:focus,#cf select:focus,#cf textarea:focus{outline:2px solid var(--pro);outline-offset:1px;border-color:transparent}
+#cf .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+#cf .act{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+#cf button{border:0;cursor:pointer;font:600 1rem var(--f);padding:14px 30px}
+#cf button[disabled]{opacity:.6;cursor:wait}
+#cfs{font-size:.98rem}#cfs.ok{color:#2d7a3e;font-weight:600}#cfs.err{color:var(--re)}
+.cside h3{font-size:1.4rem;margin-bottom:12px}.cside .note{margin-top:16px;color:var(--mute)}
+@media (max-width:860px){.cform{grid-template-columns:1fr}#cf{grid-template-columns:1fr}}
+.cside .ct,.cside .ct li,.cside .ct a{color:var(--ink-s)}.cside .ct{--rule:var(--rule)}.cside .ct span{color:var(--mute)}
