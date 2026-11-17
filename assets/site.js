@@ -8,7 +8,7 @@
   function Cycle(el,sfx,ids){
     var S=window.STAGES,A=window.ANG,nodes=[].slice.call(el.querySelectorAll('.node')),mk=document.getElementById('mk'+sfx);
     var ck=document.getElementById(ids[0]),ct=document.getElementById(ids[1]),cp=document.getElementById(ids[2]);
-    var R=226,pos=A[0],target=A[0],cur=-1,self={};
+    var R=300,pos=A[0],target=A[0],cur=-1,self={};
     function xy(a,r){var t=a*Math.PI/180;return[320+r*Math.sin(t),320-r*Math.cos(t)]}
     function setMk(a){var p=xy(a,R);mk.setAttribute('transform','translate('+p[0].toFixed(1)+' '+p[1].toFixed(1)+')')}
     self.sel=function(i){if(i===cur)return;cur=i;var s=S[i];
