@@ -333,3 +333,30 @@ footer a{color:var(--bone);text-decoration:none}footer a:hover{color:var(--lime)
 .xp{margin-top:14px;font-family:var(--fm);font-size:.78rem;letter-spacing:.05em;color:var(--nmute)}
 @media (max-width:900px){.stations{grid-template-columns:1fr}.st::after{display:none}}
 @media (max-width:640px){.path .wrap{grid-template-columns:1fr}}
+/* ---------- v9: mobile polish ---------- */
+@media (max-width:640px){
+  .sec{padding:60px 0}
+  .sec-h{margin-bottom:28px}
+  .hero{padding-top:96px;padding-bottom:40px}
+  .h3l{font-size:2.15rem!important}
+  .hero .lead{font-size:1.05rem}
+  .hero .who{grid-template-columns:repeat(3,1fr);gap:10px;font-size:.78rem}
+  .hero .who b{font-size:1rem}
+  .cyc .node text,.cyc text.side{display:none}
+  .cyc{max-width:300px;margin:8px auto 0}
+  .st{padding:24px 20px}
+  .st h3{font-size:1.4rem}
+  .st .btns,.btns{display:flex;flex-direction:column;align-items:stretch;gap:8px}
+  .btns .btn{text-align:center;justify-content:center;margin:0}
+  .path{margin:8px 8px 0}
+  .path .wrap{grid-template-columns:repeat(3,1fr)!important;gap:6px}
+  .path a{flex-direction:column;align-items:flex-start;gap:4px;padding:10px;font-size:.76rem;line-height:1.2}
+  .phero{padding-top:96px;padding-bottom:36px}
+  .phero h1{font-size:2.1rem}
+  .quotes .q.q1 blockquote{font-size:1.45rem}
+  .quotes .q{padding:24px}
+  .gain{padding:16px}
+  #cf{padding:20px}
+}
+@media (max-width:1240px){.nav{background:#2a2a28!important;box-shadow:0 18px 40px rgba(0,0,0,.35)}}
+@media (max-width:640px){#cf button{width:100%}}

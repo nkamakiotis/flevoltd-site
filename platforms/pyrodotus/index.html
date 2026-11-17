@@ -92,7 +92,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .outro .again:hover{filter:brightness(1.08)}
 </style>
 <style>html,body{margin:0}</style>
-</head>
+<style>.ly{overflow:hidden}.ly video{will-change:transform}</style><style>@media (max-width:719px){body:has(.intro.off):has(.outro.off) .hpill{display:none}}</style></head>
 <body>
 
 
@@ -107,7 +107,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   <div class="hd"><span class="dot"></span><span>Walkthrough</span><span class="sn" id="sn"></span><button class="mn" type="button" aria-label="Hide text">–</button></div>
   <p class="tx" id="tx"></p>
   <div class="ct"><div><b>Nikos Kamakiotis</b> · <span style="user-select:none">FlEvo Ltd</span></div><span>nka@flevoltd.com</span><span>+357 99 693146</span></div>
-  <div class="ft"><div class="pr"><i id="pr"></i></div><span class="nx" id="nx">Scroll to continue<i aria-hidden="true"></i></span></div>
+  <div class="ft"><div class="pr"><i id="pr"></i></div><span class="nx" id="nx"><b data-touch="Next step" style="font-weight:inherit">Scroll to continue</b><i aria-hidden="true"></i></span></div>
 </aside>
 <section class="intro" aria-label="Introduction">
   <div class="logos"><span class="lg"><span class="fw" role="img" aria-label="FlEvo Ltd"></span></span></div>
@@ -116,7 +116,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   <p class="sub">Property-level wildfire underwriting and in-season alerts for insurers</p>
   <div class="rule"></div>
   <p class="aim">A complete case as an underwriter runs it: locating the property, the five-level assessment, the underwriting decision and action report, the seven-day alert system, the community map and the weights behind every score.</p>
-  <div class="go"><span class="mouse" aria-hidden="true"></span><span>Scroll to begin</span><small>Each scroll runs the next step · or press ↓</small></div>
+  <div class="go"><span class="mouse" aria-hidden="true"></span><span data-touch="Swipe up to begin">Scroll to begin</span><small data-touch="Each swipe runs the next step">Each scroll runs the next step · or press ↓</small></div>
   <div class="foot">Hypothetical data · Confidential · © FlEvo Ltd</div>
 </section>
 <section class="intro outro off" aria-label="End of walkthrough">
@@ -211,9 +211,27 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     if(!window.fetch){fin(u);return Promise.resolve();}
     return fetch(u).then(function(r){if(!r.ok)throw 0;return r.blob();}).then(function(b){fin(URL.createObjectURL(b));}).catch(function(){fin(u);});}
   load('aud');
+
+  // phones: follow the cursor with a zoomed view, so the recorded desktop stays legible
+  var cam={x:0,y:0,on:false};
+  function camTick(){requestAnimationFrame(camTick);var W=window.innerWidth;
+    Object.keys(L).forEach(function(n){if(n==='mob')return;var v=L[n].v;
+      if(W>=720||cur<0||S[cur][0]!==n||!v.videoWidth){if(v.style.transform){v.style.transform='';}if(cur<0||W>=720)cam.on=false;return;}
+      var r=L[n].el.getBoundingClientRect(),vp=VP[n],sc=Math.min(r.width/vp[0],r.height/vp[1]),ox=(r.width-vp[0]*sc)/2,oy=(r.height-vp[1]*sc)/2;
+      var f=Math.max(0,Math.min(P[n].length/2-1,Math.round(v.currentTime*FPS))),px=ox+P[n][2*f]*sc,py=oy+P[n][2*f+1]*sc;
+      var z=W<480?2.4:1.8,cw=vp[0]*sc*z,ch=vp[1]*sc*z;
+      var top=r.height;if(nar.classList.contains('on')&&!nar.classList.contains('min')){top=Math.max(120,nar.getBoundingClientRect().top-r.top-8);}
+      var tx=r.width/2-z*px,ty=top*0.5-z*py;
+      tx=Math.min(-z*ox,Math.max(r.width-z*ox-cw,tx));
+      if(ch<=top)ty=(top-ch)/2-z*oy;else ty=Math.min(-z*oy,Math.max(top-z*oy-ch,ty));
+      if(!cam.on){cam.x=tx;cam.y=ty;cam.on=true;}else{cam.x+=(tx-cam.x)*0.07;cam.y+=(ty-cam.y)*0.07;}
+      v.style.transformOrigin='0 0';v.style.transform='translate('+cam.x.toFixed(1)+'px,'+cam.y.toFixed(1)+'px) scale('+z+')';});}
+  camTick();
+  // touch screens: swipe wording
+  if(window.matchMedia&&matchMedia('(pointer:coarse)').matches){[].forEach.call(document.querySelectorAll('[data-touch]'),function(e){e.textContent=e.getAttribute('data-touch');});}
   at(0);
 })();
 </script>
 
-<a href="/natural-hazards/" style="position:fixed;right:12px;bottom:12px;z-index:99999;background:#fff;color:#0e1a24;font:600 13px/1 Arial,sans-serif;padding:10px 14px;border-radius:999px;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.3)">← flevoltd.com</a></body>
+<a class="hpill" href="/products/" style="position:fixed;right:12px;bottom:12px;z-index:99999;background:#fff;color:#0e1a24;font:600 13px/1 Arial,sans-serif;padding:10px 14px;border-radius:999px;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.3)">← flevoltd.com</a></body>
 </html>
