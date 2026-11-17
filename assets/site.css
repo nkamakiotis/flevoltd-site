@@ -592,3 +592,6 @@ h3{font-weight:700;letter-spacing:-.02em}
 .sec.panel.dark .ct li a,.sec.panel.dark .ct li{font-size:clamp(1.15rem,1.5vw,1.75rem)!important}
 @media (min-width:981px){.sec.panel.dark .ct li{white-space:nowrap}}
 .hero-grid2 .h3l{font-size:clamp(2.4rem,4vw,4.8rem)!important}
+
+/* v15: no title in circle centre */
+.cyc .ctr .t{display:none!important}
