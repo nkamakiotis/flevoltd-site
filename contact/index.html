@@ -29,7 +29,8 @@
   <p class="lead">Demonstrations, proposals, questions. We reply within one working day.</p>
 </div></section>
 <section class="sec"><div class="wrap cform">
-<form id="cf" novalidate>
+<form id="cf" action="https://formsubmit.co/nka@flevoltd.com" method="POST">
+  <input type="hidden" name="_next" value="https://flevoltd.com/contact/?sent=1"><input type="hidden" name="_template" value="table"><input type="hidden" name="_captcha" value="false"><input type="hidden" name="_subject" id="subj" value="flevoltd.com enquiry">
   <label class="full">I'm interested in<select name="topic" id="topic"><option value="pyrodotus">PYRODOTUS demonstration</option><option value="analysis">Wildfire or flood analysis</option><option value="sponsor">Sponsoring a reconstruction</option><option value="survey">Facility risk survey demonstration</option><option value="history">Digital fire history</option><option value="training">Training proposal</option><option value="safety">Safety management proposal</option><option value="other">Something else</option></select></label>
   <label>Name<input name="name" autocomplete="name" required></label>
   <label>Company<input name="company" autocomplete="organization"></label>
@@ -46,15 +47,12 @@
 (function(){
   var f=document.getElementById('cf'),s=document.getElementById('cfs'),sel=document.getElementById('topic');
   var q=(location.search.match(/topic=([a-z]+)/)||[])[1];if(q&&sel.querySelector('option[value="'+q+'"]'))sel.value=q;
-  f.addEventListener('submit',function(e){e.preventDefault();
-    if(f._honey.value)return;
-    if(!f.name.value.trim()||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email.value)){s.textContent='Please add your name and a valid email.';s.className='err';return;}
-    var t=sel.options[sel.selectedIndex].text,d={_subject:'flevoltd.com: '+t,_template:'table',topic:t,name:f.name.value,company:f.company.value,email:f.email.value,phone:f.phone.value,message:f.message.value};
-    var b=f.querySelector('button');b.disabled=true;s.className='';s.textContent='Sending…';
-    fetch('https://formsubmit.co/ajax/nka@flevoltd.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(d)})
-      .then(function(r){return r.json()}).then(function(j){if(j&&(j.success===true||j.success==='true')){f.reset();if(q)sel.value=q;s.className='ok';s.textContent='Thank you. Your message has been sent; we will reply within one working day.';}else throw (j&&j.message)||'';})
-      .catch(function(m){s.className='err';s.innerHTML='The message could not be sent'+(typeof m==='string'&&m?' ('+m.replace(/</g,'&lt;')+')':'')+'. Please email <a href="mailto:nka@flevoltd.com?subject='+encodeURIComponent(d._subject)+'&body='+encodeURIComponent(d.message)+'">nka@flevoltd.com</a>.';})
-      .then(function(){b.disabled=false;});
+  if(/sent=1/.test(location.search)){s.className='ok';s.textContent='Thank you. Your message has been sent; we will reply within one working day.';s.scrollIntoView({block:'center'});}
+  f.addEventListener('submit',function(e){
+    if(f._honey.value){e.preventDefault();return;}
+    if(!f.name.value.trim()||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email.value)){e.preventDefault();s.textContent='Please add your name and a valid email.';s.className='err';return;}
+    document.getElementById('subj').value='flevoltd.com: '+sel.options[sel.selectedIndex].text;
+    s.className='';s.textContent='Sending…';f.querySelector('button').disabled=true;
   });
 })();
 </script>
