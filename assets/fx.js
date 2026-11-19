@@ -41,6 +41,6 @@
       P.needsUpdate=true;g.attributes.color.needsUpdate=true;
       S.rotation.y=-.35+mx*.25+Math.sin(t*.1)*.05;S.rotation.x=my*.08;
       R.render(S,C)}
-    requestAnimationFrame(frame);requestAnimationFrame(function(){c.classList.add('on')});
+    requestAnimationFrame(frame);setTimeout(function(){c.classList.add('on')},60);
   });
 })();
